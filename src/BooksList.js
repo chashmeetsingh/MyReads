@@ -26,7 +26,7 @@ class BooksList extends React.Component {
                                                 <div className='book-top'>
                                                     <div className='book-cover' style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}/>
                                                     <div className="book-shelf-changer">
-                                                        <select>
+                                                        <select onChange={(event) => this.props.onUpdateShelf(book, event.target.value)} defaultValue='currentlyReading'>
                                                             <option value="none" disabled>Move to...</option>
                                                             <option value="currentlyReading">Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>
@@ -51,7 +51,7 @@ class BooksList extends React.Component {
                                                 <div className='book-top'>
                                                     <div className='book-cover' style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}/>
                                                     <div className="book-shelf-changer">
-                                                        <select>
+                                                        <select onChange={(event) => this.props.onUpdateShelf(book, event.target.value)} defaultValue='wantToRead'>
                                                             <option value="none" disabled>Move to...</option>
                                                             <option value="currentlyReading">Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>
@@ -76,7 +76,7 @@ class BooksList extends React.Component {
                                                 <div className='book-top'>
                                                     <div className='book-cover' style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}/>
                                                     <div className="book-shelf-changer">
-                                                        <select>
+                                                        <select onChange={(event) => this.props.onUpdateShelf(book, event.target.value)} defaultValue='read'>
                                                             <option value="none" disabled>Move to...</option>
                                                             <option value="currentlyReading">Currently Reading</option>
                                                             <option value="wantToRead">Want to Read</option>
