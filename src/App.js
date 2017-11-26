@@ -12,6 +12,10 @@ class BooksApp extends React.Component {
     }
 
     componentDidMount() {
+        this.getAllBooks()
+    }
+
+    getAllBooks() {
         BooksAPI.getAll().then((books) => {
             this.setState({ books })
         })
@@ -19,10 +23,7 @@ class BooksApp extends React.Component {
 
     updateShelf = (book, shelf) => {
         BooksAPI.update(book, shelf).then(() => {
-            book.shelf = shelf
-            this.setState((state) => {
-                books: state.books.filter(b => b.id !== book.id).concat(book)
-            })
+            this.getAllBooks()
         })
     }
 
